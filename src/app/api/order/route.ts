@@ -1,7 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
-import { Resend } from "resend";
 
-const resend = new Resend(process.env.RESEND_API_KEY);
+export const dynamic = "force-dynamic";
 const ADMIN_EMAIL = process.env.ADMIN_EMAIL || "admin@meatxpress.pk";
 const FROM_EMAIL = process.env.FROM_EMAIL || "orders@meatxpress.pk";
 
@@ -107,6 +106,8 @@ function customerHTML(o: OrderPayload) {
 export async function POST(req: NextRequest) {
   try {
     const body: OrderPayload = await req.json();
+    const { Resend } = await import("resend");
+    const resend = new Resend(process.env.RESEND_API_KEY);
 
     // Admin email — always send
     await resend.emails.send({
