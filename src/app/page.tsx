@@ -2,6 +2,7 @@ import Link from "next/link";
 import { ArrowRight, Truck, Shield, Clock, Star, MapPin, ChevronRight, MessageCircle, Flame } from "lucide-react";
 import { products } from "@/lib/products";
 import ProductCard from "@/components/shop/ProductCard";
+<meta name="google-site-verification" content="syd8I7Mg6qJ0dqiojQpSi4j6jBQ6mqv85OzF1KiLnS8" />
 
 const ALL_CATEGORIES = [
   { href: "/shop?cat=fish",    img: "https://images.unsplash.com/photo-1544943910-4c1dc44aab44?w=800&q=80",    from: "from-blue-950",   to: "to-blue-800",   title: "Fresh Fish",    sub: "Rahu · River Sole · Singhara · Chirra · Mali", badge: "7 Varieties",  emoji: "🐟" },

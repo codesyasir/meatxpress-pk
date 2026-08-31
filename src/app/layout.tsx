@@ -20,6 +20,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     <html lang="en">
       <head>
         <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+        <meta name="google-site-verification" content="syd8I7Mg6qJ0dqiojQpSi4j6jBQ6mqv85OzF1KiLnS8" />
       </head>
       <body>
         <Toaster
