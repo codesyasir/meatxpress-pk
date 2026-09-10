@@ -84,10 +84,14 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* ── ANNOUNCEMENT BANNER ── */}
-       <div className="bg-brand-gold text-brand-dark py-3 px-4 text-center font-bold text-sm md:text-base animate-pulse">
-        🔥 Now Available: Masala Rahu Fish — Fully Marinated, Ready to Fry/Grill — Rs 1,200/kg — Delivery All Over Lahore via InDrive/Yango 🔥
-      </div>
+      {/* ── HERO BANNER IMAGE ── */}
+            <div className="w-full">
+             <img
+             src="/banner.jpg"
+               alt="Marinated Fresh Rahu Fish — Rs 1200/kg — Home delivery all over Lahore via InDrive/Yango"
+                 className="w-full h-auto object-cover"
+                    />
+              </div>
 
       {/* ── FEATURES BAR ── */}
       <section className="bg-brand-red text-white">
