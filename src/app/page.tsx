@@ -87,7 +87,7 @@ export default function HomePage() {
       {/* ── HERO BANNER IMAGE ── */}
             <div className="w-full">
              <img
-             src="/banner.jpg"
+             src="/banner.jpeg"
                alt="Marinated Fresh Rahu Fish — Rs 1200/kg — Home delivery all over Lahore via InDrive/Yango"
                  className="w-full h-auto object-cover"
                     />
