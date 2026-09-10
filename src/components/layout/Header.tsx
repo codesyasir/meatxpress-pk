@@ -52,7 +52,7 @@ export default function Header() {
       <div className="bg-brand-red text-white text-xs py-2 px-4 flex justify-between items-center">
         <div className="flex items-center gap-1.5">
           <MapPin size={11} />
-          <span>Delivering in <strong>DHA, Gulberg, Model Town & select areas</strong></span>
+          <span>Delivering all over <strong>Lahore</strong> via InDrive/Yango</span>
         </div>
         <a href="tel:03215402284" className="flex items-center gap-1.5 hover:text-red-200 transition-colors">
           <Phone size={11} /><span>0321-5402284</span>

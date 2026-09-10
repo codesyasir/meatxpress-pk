@@ -5,16 +5,16 @@ import { CheckCircle, Truck, CreditCard, MessageCircle, ShoppingBag, ChevronDown
 import { useCartStore } from "@/lib/cart-store";
 import toast from "react-hot-toast";
 
-type PayMethod = "cod" | "jazzcash";
+type PayMethod = "jazzcash" | "easypaisa" | "nayapay";
 
 const FREE_THRESHOLD = 5000;
 const DELIVERY_FEE = 200;
-const DELIVERY_AREAS = "DHA Phase 1–8 · Gulberg · Model Town · Cavalry Ground · Sui Gas Society · Askari 3, 9, 10, 11";
+const DELIVERY_AREAS = "All areas of Lahore — Delivery via InDrive/Yango";
 
 export default function CheckoutPage() {
   const { items, total, clearCart } = useCartStore();
   const [form, setForm] = useState({ name: "", phone: "", address: "", email: "", whatsappOptIn: false, whatsapp: "" });
-  const [payMethod, setPayMethod] = useState<PayMethod>("cod");
+  const [payMethod, setPayMethod] = useState<PayMethod>("jazzcash");
   const [loading, setLoading] = useState(false);
   const [ordered, setOrdered] = useState(false);
   const [orderNum, setOrderNum] = useState("");
@@ -22,7 +22,7 @@ export default function CheckoutPage() {
   // FIX: capture these before clearing cart
   const [savedTotal, setSavedTotal] = useState(0);
   const [savedDelivery, setSavedDelivery] = useState(0);
-  const [savedPayMethod, setSavedPayMethod] = useState<PayMethod>("cod");
+  const [savedPayMethod, setSavedPayMethod] = useState<PayMethod>("jazzcash");
 
   const subtotal = total();
   const delivery = subtotal >= FREE_THRESHOLD ? 0 : (subtotal > 0 ? DELIVERY_FEE : 0);
@@ -115,7 +115,7 @@ export default function CheckoutPage() {
           <div className="flex justify-between gap-4"><span className="text-gray-500 flex-shrink-0">Address</span><span className="font-semibold text-right">{form.address}</span></div>
           <div className="flex justify-between border-t border-red-100 pt-2">
             <span className="text-gray-500">Payment</span>
-            <span className="font-semibold">{savedPayMethod === "cod" ? "Cash on Delivery" : "JazzCash"}</span>
+            <span className="font-semibold">{savedPayMethod === "jazzcash" ? "JazzCash" : savedPayMethod === "easypaisa" ? "EasyPaisa" : "NayaPay"}</span>
           </div>
           <div className="flex justify-between">
             <span className="text-gray-500">Delivery</span>
@@ -136,12 +136,21 @@ export default function CheckoutPage() {
           </div>
         )}
 
-        {savedPayMethod === "jazzcash" && (
-          <div className="bg-yellow-50 border border-yellow-200 rounded-2xl p-4 mb-4 text-sm text-left">
-            <p className="font-bold text-yellow-800 mb-1">⚡ JazzCash Payment</p>
-            <p className="text-yellow-700">Send <strong>≈ Rs {savedTotal.toLocaleString()}</strong> to <strong>0321-5402284</strong> and send screenshot on WhatsApp.</p>
-          </div>
-        )}
+        {(savedPayMethod === "jazzcash" || savedPayMethod === "easypaisa" || savedPayMethod === "nayapay") && (
+  <div className="bg-yellow-50 border border-yellow-200 rounded-2xl p-4 mb-4 text-sm text-left">
+    <p className="font-bold text-yellow-800 mb-2">
+      {savedPayMethod === "jazzcash" ? "📱 JazzCash" : savedPayMethod === "easypaisa" ? "💚 EasyPaisa" : "🔵 NayaPay"} Payment
+    </p>
+    <p className="text-yellow-700">Send <strong>Rs {savedTotal.toLocaleString()}</strong> to:</p>
+    <p className="text-yellow-800 font-black text-lg mt-1">0309-2237898</p>
+    <p className="text-yellow-700 text-xs mt-0.5">Account Title: <strong>Yasir Malik</strong></p>
+    <p className="text-yellow-700 mt-2">After payment, send the screenshot on WhatsApp to confirm your order.</p>
+    <a href="https://wa.me/923092237898" target="_blank"
+      className="mt-3 inline-flex items-center gap-2 bg-green-500 text-white font-bold px-4 py-2 rounded-xl text-xs hover:bg-green-600 transition-colors">
+      📲 Send Screenshot on WhatsApp
+    </a>
+  </div>
+)}
 
         {form.email && (
           <div className="bg-green-50 border border-green-100 rounded-2xl p-3 mb-4 text-sm text-green-700 flex items-center gap-2">
@@ -242,9 +251,10 @@ export default function CheckoutPage() {
             </h2>
             <div className="space-y-2.5">
               {([
-                { id: "cod" as PayMethod, label: "Cash on Delivery", sub: "Pay when your order arrives. No advance needed.", icon: "💵" },
-                { id: "jazzcash" as PayMethod, label: "JazzCash", sub: "Send to 0321-5402284 & share screenshot on WhatsApp.", icon: "📱" },
-              ]).map(opt => (
+                { id: "jazzcash" as PayMethod, label: "JazzCash", sub: "Send to 0309-2237898 (Yasir Malik) and share screenshot on WhatsApp.", icon: "📱" },
+                { id: "easypaisa" as PayMethod, label: "EasyPaisa", sub: "Send to 0309-2237898 (Yasir Malik) and share screenshot on WhatsApp.", icon: "💚" },
+                { id: "nayapay" as PayMethod, label: "NayaPay", sub: "Send to 0309-2237898 (Yasir Malik) and share screenshot on WhatsApp.", icon: "🔵" },
+                ]).map(opt => (
                 <label key={opt.id}
                   className={`flex items-start gap-3 p-3.5 rounded-xl border-2 cursor-pointer transition-all ${payMethod === opt.id ? "border-brand-red bg-red-50" : "border-gray-200 hover:border-gray-300"}`}>
                   <input type="radio" name="payment" value={opt.id} checked={payMethod === opt.id}
@@ -332,10 +342,11 @@ export default function CheckoutPage() {
           <div className="bg-red-50 rounded-2xl p-4 text-xs text-gray-500 space-y-1.5 border border-red-100">
             <p className="font-bold text-gray-700 text-sm mb-1.5">Delivery Info</p>
             <p>📍 {DELIVERY_AREAS}</p>
-            <p>⏱ Delivered within 24 hours</p>
+            
             <p>🚚 Free delivery above Rs 5,000</p>
-            <p>💵 Cash on Delivery accepted</p>
-            <p>📱 JazzCash: 0321-5402284</p>
+            <p>📱 JazzCash / EasyPaisa / NayaPay</p>
+              <p className="font-bold text-gray-700">0309-2237898 (Yasir Malik)</p>
+            <p>📸 Send screenshot on WhatsApp after payment</p>
           </div>
         </div>
       </div>

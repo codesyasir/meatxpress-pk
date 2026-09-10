@@ -33,13 +33,13 @@ export default function HomePage() {
             </div>
 
             <h1 className="font-display text-4xl sm:text-5xl md:text-6xl font-black leading-[1.05] mb-4 md:mb-5">
-              Fresh Fish,<br />
-              <span className="text-brand-red">Beef & Desi</span><br />
-              <span className="text-3xl md:text-4xl font-bold text-gray-300">Chicken — Delivered</span>
+              Masala Rahu Fish<br />
+               <span className="text-brand-red">Ready to Fry</span><br />
+                 <span className="text-3xl md:text-4xl font-bold text-gray-300">or Grill — Fresh Daily</span>
             </h1>
 
             <p className="text-gray-300 text-sm sm:text-base md:text-lg leading-relaxed mb-6 md:mb-8 max-w-lg">
-              19 premium products — fish, beef, mutton, desi chicken & eggs. Farm to table, delivered within 24 hours in select Lahore areas.
+             Fully marinated Rahu Fish — Full Mota Kanta. Freshness guaranteed. Best taste in Lahore, guaranteed. Rs 1,200/kg. Delivery all over Lahore via InDrive/Yango.
             </p>
 
             <div className="flex gap-3 flex-wrap mb-8 md:mb-10">
@@ -83,6 +83,11 @@ export default function HomePage() {
           </div>
         </div>
       </section>
+
+      {/* ── ANNOUNCEMENT BANNER ── */}
+       <div className="bg-brand-gold text-brand-dark py-3 px-4 text-center font-bold text-sm md:text-base animate-pulse">
+        🔥 Now Available: Masala Rahu Fish — Fully Marinated, Ready to Fry/Grill — Rs 1,200/kg — Delivery All Over Lahore via InDrive/Yango 🔥
+      </div>
 
       {/* ── FEATURES BAR ── */}
       <section className="bg-brand-red text-white">
@@ -249,17 +254,15 @@ export default function HomePage() {
 
       {/* ── DELIVERY AREAS ── */}
       <section className="bg-brand-dark text-white py-10 md:py-12">
-        <div className="max-w-3xl mx-auto px-4 sm:px-6 text-center">
-          <MapPin className="mx-auto text-brand-red mb-3" size={26} />
-          <h2 className="font-display text-lg sm:text-xl font-bold mb-2">Delivery Areas — Lahore</h2>
-          <div className="flex flex-wrap justify-center gap-2 mt-4">
-            {["DHA Phase 1–8", "Gulberg", "Model Town", "Cavalry Ground", "Sui Gas Society", "Askari 3", "Askari 9", "Askari 10", "Askari 11"].map(a => (
-              <span key={a} className="bg-white/10 border border-white/20 text-white text-xs px-3 py-1.5 rounded-full">{a}</span>
-            ))}
-          </div>
-          <p className="text-gray-400 text-xs sm:text-sm mt-4">Free delivery on orders above Rs 5,000 · Delivered within 24 hours</p>
-        </div>
-      </section>
+  <div className="max-w-3xl mx-auto px-4 sm:px-6 text-center">
+    <MapPin className="mx-auto text-brand-red mb-3" size={26} />
+    <h2 className="font-display text-lg sm:text-xl font-bold mb-2">Delivery All Over Lahore</h2>
+    <p className="text-gray-400 text-sm mt-3">
+      We deliver everywhere in Lahore via <strong className="text-white">InDrive</strong> and <strong className="text-white">Yango</strong>. Order now and get fresh Masala Rahu Fish at your doorstep.
+    </p>
+    <p className="text-gray-400 text-xs sm:text-sm mt-3">Free delivery on orders above Rs 5,000 · Delivery Foran Se</p>
+  </div>
+</section>
     </div>
   );
 }

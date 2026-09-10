@@ -42,14 +42,8 @@ export default function Footer() {
 
         <div>
           <h4 className="font-bold text-sm text-white mb-4 uppercase tracking-wider">Delivery Areas</h4>
-          <ul className="space-y-1.5 text-xs text-gray-400">
-            {["DHA Phase 1–8", "Gulberg", "Model Town", "Cavalry Ground & surroundings", "Sui Gas Society", "Askari 3, 9, 10, 11"].map(a => (
-              <li key={a} className="flex items-center gap-1.5">
-                <span className="w-1 h-1 bg-brand-red rounded-full flex-shrink-0" />
-                {a}
-              </li>
-            ))}
-          </ul>
+          <p className="text-gray-400 text-sm">All areas of Lahore</p>
+          <p className="text-gray-400 text-sm">Delivery via InDrive / Yango</p>
         </div>
 
         <div>
@@ -70,10 +64,9 @@ export default function Footer() {
           </ul>
           <div className="mt-4 space-y-1.5 text-xs">
             <p className="text-gray-300 font-semibold text-sm">Payment & Delivery</p>
-            <p className="text-gray-400">✅ Cash on Delivery</p>
-            <p className="text-gray-400">✅ JazzCash: 0321-5402284</p>
+            <p className="text-gray-400">✅ JazzCash/EasyPaisa/NayaPay: 0309-2237898 "Yasir Malik"</p>
             <p className="text-gray-400">🚚 Free delivery above Rs 5,000</p>
-            <p className="text-gray-400">⏱ Delivered within 24 hours</p>
+            <p className="text-gray-400">⏱ Deliverey Foran Se</p>
           </div>
         </div>
       </div>
