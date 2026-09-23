@@ -123,7 +123,7 @@ export const products: Product[] = [
   soldByPiece: false,
   description: "Fully marinated Rahu Fish — Ready to Fry or Grill. Best taste in Lahore, guaranteed.",
   longDescription: "Our Masala Rahu Fish is a fully marinated whole Rahu — cleaned, cut, and marinated in our special homemade spice blend. Freshness guaranteed. Full Mota Kanta. Just put it in the pan or on the grill and enjoy restaurant-quality fish at home. Best taste in Lahore — guaranteed. Delivery all over Lahore via InDrive/Yango.",
-  image: "https://images.unsplash.com/photo-1534080564583-6be75777b70a?w=600&q=80",
+  image: "/masala-fish.jpg",
   badge: "Best Seller",
   inStock: true,
   weight: "Per kg",
